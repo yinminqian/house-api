@@ -42,6 +42,10 @@ class CreateTableHouse extends Migration
             $table->integer('fixation')->comment('固定价格');
             $table->string('weeks_discount')->comment('周折扣');
             $table->string('mouth_discount')->comment('月折扣');
+            $table->boolean('audit_state')->nullable()->comment('审核状态');
+            $table->integer('audit_admin')->nullable()->commit('审核管理员');
+            $table->timestamp('audit_time')->nullable()->commit('审核时间');
+
             $table->timestamps();
         });
     }

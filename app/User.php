@@ -76,4 +76,6 @@ class User extends Authenticatable
         return BS::on_logout($token);
     }
 
+
+
 }

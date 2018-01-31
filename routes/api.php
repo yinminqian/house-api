@@ -27,6 +27,11 @@ Route::any('/read_location', function () {
     return $location->read();
 });
 
+Route::any('/read_independent', function () {
+    $location = new \App\Location;
+    return $location->read_independent();
+});
+
 Route::any('/signup', function () {
     $user = new User;
     return $user->signup();

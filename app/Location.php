@@ -31,4 +31,18 @@ class Location extends Model
        return $test;
     }
 
+    public function read_independent(){
+        $test=[];
+        $province= $this->where('parent_id',1)->get();
+//        dd($province);
+        foreach ($province as $val){
+            $test[]=$val;
+            $city=$this->where('parent_id',$val['id'])->get();
+            foreach ($city as $key){
+                $test[]=$key;
+            }
+        }
+        return $test;
+    }
+
 }
