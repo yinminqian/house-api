@@ -30,9 +30,9 @@ class CreateTableHouse extends Migration
             $table->json('facility')->comment('可以使用的设施');
             $table->json('photo')->comment('照片');
             $table->string('house_text')->nullable()->commeent('房屋描述');
-            $table->string('suit')->comment('适合人群');
+            $table->json('suit')->comment('适合人群');
             $table->string('house_title')->nullable()->comment('房屋名称');
-            $table->string('string')->nullable()->comment('对房客的要求');
+            $table->json('string')->nullable()->comment('对房客的要求');
             $table->json('regulation')->nullable()->comment('对房屋的守则');
             $table->string('inform')->nullable()->comment('提前通知的时间');
             $table->integer('stay_min')->nullable()->comment('最小入住天数');
@@ -43,6 +43,8 @@ class CreateTableHouse extends Migration
             $table->string('weeks_discount')->comment('周折扣');
             $table->string('mouth_discount')->comment('月折扣');
             $table->boolean('audit_state')->nullable()->comment('审核状态');
+            $table->boolean('submit_state')->nullable()->comment('提交状态');
+            $table->boolean('save_state')->nullable()->comment('保存状态');
             $table->integer('audit_admin')->nullable()->commit('审核管理员');
             $table->timestamp('audit_time')->nullable()->commit('审核时间');
 

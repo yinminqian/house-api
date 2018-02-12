@@ -20,7 +20,8 @@ class User extends Authenticatable
     ];
 
     protected $casts = [
-        'data' => 'json'
+        'data' => 'json',
+        'life_photo' => 'json'
     ];
 
     public function login()
@@ -76,6 +77,21 @@ class User extends Authenticatable
         return BS::on_logout($token);
     }
 
+    public function update_user()
+    {
+        $arr = request()->toArray();
+        if (request('life_photo')) {
+            $arr['life_photo'] = json_encode($arr['life_photo']);
+        } else {
+            $arr['life_photo'] = json_encode([]);
+        }
+        return $this->where('id', request('id'))->update($arr);
+    }
 
+
+    public function read_user_id()
+    {
+        return $this->find(request('id'));
+    }
 
 }

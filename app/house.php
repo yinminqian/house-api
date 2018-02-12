@@ -14,6 +14,8 @@ class house extends Model
         'convenience' => 'json',
         'facility' => 'json',
         'photo' => 'json',
-        'regulation' => 'json'
+        'regulation' => 'json',
+        'string'=>'json',
+        'suit'=>'json'
     ];
 }

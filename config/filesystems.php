@@ -51,7 +51,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
@@ -62,6 +62,22 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+            'qiniu' => [
+                'driver' => 'qiniu',
+                'domain' => 'ovygmwfnp.bkt.clouddn.com',          //你的七牛域名，支持 http 和 https，也可以不带协议，默认 http
+                'access_key' => 'jNNXBXMZo-4RD2-EES_26RhN8kMUtFJYb6hgVJQi',                          //AccessKey
+                'secret_key' => 'HHfzIKVE7Po4z-sxIS1za2DHTy4fWM1XdufW96TU',                             //SecretKey
+                'bucket' => 'yinminqian',                                 //Bucket名字
+            ],
+
+            'qiniu_private' => [
+                'driver' => 'qiniu',
+                'domain' => 'https://www.example.com',          //你的七牛域名，支持 http 和 https，也可以不带协议，默认 http
+                'access_key' => '',                          //AccessKey
+                'secret_key' => '',                             //SecretKey
+                'bucket' => 'qiniu_private',                    //Bucket名字
+            ],
+
 
     ],
 

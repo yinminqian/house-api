@@ -9,6 +9,11 @@ class Location extends Model
     public $table='t_location';
     protected $guarded=['id'];
 
+    public $casts=[
+
+    ];
+
+
 
 
 

@@ -41,9 +41,20 @@ Route::any('/login', function () {
     return $user->login();
 });
 
+Route::any('/update_user', function () {
+    $user = new User;
+    return $user->update_user();
+});
+
+
 Route::any('/islogin', function () {
     $user = new User;
     return $user->is_login();
+});
+
+Route::any('/read_user_id', function () {
+    $user = new User;
+    return $user->read_user_id();
 });
 Route::any('/logout', function () {
     $user = new User;
