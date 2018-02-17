@@ -66,7 +66,6 @@ class User extends Authenticatable
         $this->password = request('password');
         $this->phone = request('phone');
         $this->email = request('email');
-//        dd($this->toArray());
         return $this->save() ? 1 : 0;
     }
 

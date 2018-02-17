@@ -19,7 +19,7 @@ class CreateTableUser extends Migration
             $table->string('password');
             $table->string('email')->unique();
             $table->text('data')->nullable();
-            $table->integer('phone')->unique();
+            $table->bigInteger('phone')->unique();
             $table->string('permission')->nullable();
             $table->timestamps();
         });
