@@ -1,6 +1,6 @@
 <?php
 
-function err($msg = null, $status = 403)
+function err($msg = null, $status = 200)
 {
     return response()
         ->json(['success' => false, 'msg' => $msg], $status);
