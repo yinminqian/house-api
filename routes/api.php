@@ -45,6 +45,10 @@ Route::any('/update_user', function () {
     $user = new User;
     return $user->update_user();
 });
+Route::any('/update_data', function () {
+    $user = new User;
+    return $user->update_data();
+});
 
 
 Route::any('/islogin', function () {

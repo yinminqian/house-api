@@ -12,7 +12,7 @@ class User extends Authenticatable
     protected $guarded = ['id'];
     public $table = 'user';
     protected $fillable = [
-        'username', 'password', 'phone', 'email',
+        'username', 'password', 'phone', 'email','data'
     ];
 
     protected $hidden = [
@@ -79,14 +79,24 @@ class User extends Authenticatable
     public function update_user()
     {
         $arr = request()->toArray();
-        if (request('life_photo')) {
-            $arr['life_photo'] = json_encode($arr['life_photo']);
-        } else {
-            $arr['life_photo'] = json_encode([]);
-        }
-        return $this->where('id', request('id'))->update($arr);
+//        if (request('life_photo')) {
+//            $arr['life_photo'] = json_encode($arr['life_photo']);
+//        } else {
+//            $arr['life_photo'] = json_encode([]);
+//        }
+//        return $this->where('id', request('id'))->fill($arr)->update($arr);
+        $data = $this->find(request('id'));
+
+        return $data->update($arr) ? suc($data) : err();
     }
 
+
+    public function update_data()
+    {
+        $data = request('data');
+        $id = request('id');
+        return $this->find($id)->update(['data' => $data]) ? suc($this->where('id',request('id'))->get()) : 0;
+    }
 
     public function read_user_id()
     {
