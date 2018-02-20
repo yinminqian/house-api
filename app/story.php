@@ -13,5 +13,10 @@ class story extends Model
         'photo' => 'json'
     ];
 
+    public function comments()
+    {
+        return $this->hasMany('App\story_comments', 'article_id');
+    }
+
 
 }
