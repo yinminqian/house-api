@@ -18,11 +18,28 @@ class Story_commentsController extends ApiController
     function read_comment()
     {
         $data = [];
-        $comment = $this->model->where('article_id', \request('article_id'))->limit(10)->get();
+        $son_data = [];
+        $comment = $this->model->where('article_id', \request('article_id'))->orderBy('id', 'desc')->get();
         foreach ($comment as $val) {
             $username = $this->get_username($val->user_id);
             $time_ = (time() - time($val->created_at)) / 60 / 60 / 24;
-            $data[] = ['username' => $username, 'comment' => $val->comment, 'time' => $time_];
+            if ($val->parent_id) {
+                $dat = $this->model->find($val->parent_id);
+                $parent = $this->get_username($dat['user_id']);
+            }else{
+                $parent=null;
+            }
+//            if (count($son_id = $this->model->where('parent_id', $val->id)->get()) != 0) {
+//                foreach ($son_id as $key) {
+//                    $username_son = $this->get_username($key->user_id);
+//                    $time_son = (time() - time($key->created_at)) / 60 / 60 / 24;
+//                    $son_data[] = ['username' => $username_son, 'comment' => $key->comment, 'time' => $time_son, 'id' => $key->id, 'reply' => true, 'parent_id' => $key->parent_id];
+//                }
+//                $data[] = ['username' => $username, 'comment' => $val->comment, 'time' => $time_, 'id' => $val->id, 'reply' => true, 'son' => $son_data];
+//                $son_data = [];
+//            } else {
+            $data[] = ['username' => $username, 'comment' => $val->comment, 'time' => $time_, 'id' => $val->id, 'reply' => true, 'parent' => $parent];
+//            }
         }
         return $data;
     }
