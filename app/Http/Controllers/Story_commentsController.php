@@ -19,7 +19,7 @@ class Story_commentsController extends ApiController
     {
         $data = [];
         $son_data = [];
-        $comment = $this->model->where('article_id', \request('article_id'))->orderBy('id', 'desc')->get();
+        $comment = $this->model->where('article_id', \request('article_id'))->limit(10)->orderBy('id', 'desc')->get();
         foreach ($comment as $val) {
             $username = $this->get_username($val->user_id);
             $time_ = (time() - time($val->created_at)) / 60 / 60 / 24;
