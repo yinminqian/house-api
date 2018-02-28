@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use \App\Bsessions as BS;
 use Closure;
 
-class BsessionHandler
+class BSessionHandler
 {
     /**
      * Handle an incoming request.
