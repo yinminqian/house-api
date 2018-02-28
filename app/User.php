@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Bsessions as BS;
+use App\Bsessions as Bs;
 
 class User extends Authenticatable
 {
@@ -73,7 +73,7 @@ class User extends Authenticatable
     public function logout()
     {
         $token = $GLOBALS['__BSESSION__']['meta']['token'];
-        return BS::on_logout($token);
+        return Bs::on_logout($token);
     }
 
     public function update_user()
