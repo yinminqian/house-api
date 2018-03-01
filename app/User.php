@@ -12,7 +12,7 @@ class User extends Authenticatable
     protected $guarded = ['id'];
     public $table = 'user';
     protected $fillable = [
-        'username', 'password', 'phone', 'email','data'
+        'username', 'password', 'phone', 'email','data','photo','life_photo'
     ];
 
     protected $hidden = [
@@ -85,9 +85,11 @@ class User extends Authenticatable
 //            $arr['life_photo'] = json_encode([]);
 //        }
 //        return $this->where('id', request('id'))->fill($arr)->update($arr);
+//        $photo=request('photo');
+//        return$photo;
         $data = $this->find(request('id'));
-
-        return $data->update($arr) ? suc($data) : err();
+//        return $data;
+        return $data->update($arr) ? suc($this->find(request('id'))) : err();
     }
 
 

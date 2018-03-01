@@ -26,6 +26,11 @@ class StoryController extends ApiController
         return $this->model->where('publish', 1)->get();
     }
 
+    public function read_story_user()
+    {
+        return $this->model->where('user_id', \request('user_id'))->get();
+    }
+
     public function read_id()
     {
         return $this->model->find(\request('id'));

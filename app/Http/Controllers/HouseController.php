@@ -14,8 +14,8 @@ class HouseController extends ApiController
     public function add()
     {
         $arr = $this->v();
-        $i = $this->model->create($arr);
-        return $i;
+        $i= $this->model->create($arr);
+        return $i?suc($i):err();
     }
 
     public function v()
@@ -55,6 +55,11 @@ class HouseController extends ApiController
 
     public function read_house(){
         return $this->model->all();
+    }
+    public function read_user_house(){
+        return $this->model->where('user_id',\request('user_id'))->get();
+
+
     }
 
 
