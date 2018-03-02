@@ -29,9 +29,8 @@ class Bsessions extends Model
         //找打数据库的符合条件的第一条token;
         if (!$row) {
             return false;
-        } else {
-            return self::$meta = $row;
         }
+            return self::$meta = $row;
     }
 
 
@@ -113,6 +112,26 @@ class Bsessions extends Model
         $row->user_id=null;
         $row->save();
         return ['success'=>true];
+    }
+
+    public static function set_data($key, $val)
+    {
+        $row = &self::$meta;
+        $data = $row->data;
+        array_set($data, $key, $val);
+        $row->data = $data;
+        if ($row->save()) {
+            self::sync_to_cache();
+            return true;
+        }
+    }
+
+    public static function get_data($key = null)
+    {
+        $data = self::$meta->data;
+        if ( ! $key)
+            return $data;
+        return array_get($data, $key);
     }
 
 }
