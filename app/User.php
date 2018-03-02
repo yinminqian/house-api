@@ -48,6 +48,7 @@ class User extends Authenticatable
 
     public function sync_to_session()
     {
+        dd($this->toArray());
         if (!$this->id)
             return false;
         array_set($GLOBALS['__BSESSION__'], 'user', $this->toArray());
