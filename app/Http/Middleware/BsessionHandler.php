@@ -17,9 +17,8 @@ class BsessionHandler
     public function handle($request, Closure $next)
     {
         $session_name = 'BSESSION_TOKEN';
-        return $session_name;
         $token = $request->get($session_name) ?: $request->header($session_name);
-//        dd($token);
+        dd($token);
         if (!$token || !Bs::valid($token)) {
 //            如果用户上传的数据没有携带token||数据库没有找到用户上传的token;
             Bs::generate();
