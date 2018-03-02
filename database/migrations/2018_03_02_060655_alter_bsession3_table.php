@@ -14,7 +14,7 @@ class AlterBsession3Table extends Migration
     public function up()
     {
         Schema::table('bsession', function (Blueprint $table) {
-            $table->dropUnique('user_id');
+            $table->dropColumn('user_id');
         });
     }
 
