@@ -67,7 +67,6 @@ class Bsessions extends Model
             'user' => $meta->user_id ? User::find($meta->user_id)->toArray() : null,
             'data' => $meta->data ?: [],
         ];
-        dd($cache);
         $GLOBALS['__BSESSION__'] = $cache;
     }
 
