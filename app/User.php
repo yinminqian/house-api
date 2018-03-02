@@ -57,7 +57,7 @@ class User extends Authenticatable
 
     public function is_login()
     {
-        return @$GLOBALS;
+        return @$GLOBALS['__Bsession__'];
         return @$GLOBALS['__BSESSION__']['user'] ? ['success' => true, 'data' => @$GLOBALS['__BSESSION__']['user']] : ['success' => false];
     }
 
