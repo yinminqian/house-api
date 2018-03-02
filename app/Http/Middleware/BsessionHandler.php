@@ -19,6 +19,7 @@ class BsessionHandler
         $session_name = 'BSESSIONTOKEN';
         $token = $request->get($session_name) ?: $request->header($session_name);
         if (!$token || !Bs::valid($token)) {
+            return 1;
 //            如果用户上传的数据没有携带token||数据库没有找到用户上传的token;
             Bs::generate();
 //           生成一条token进储存进数据库
@@ -29,6 +30,7 @@ class BsessionHandler
             header("Access-Control-Expose-Headers: $session_name");
             header("$session_name: $token");
         } else {
+            return 3;
 //            将整合的数据存进全局变量中
             Bs::sync_to_cache();
         }
