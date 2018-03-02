@@ -24,18 +24,15 @@ class BsessionHandler
 //           生成一条token进储存进数据库
 //           这时meta已经有数据
 
-            dd(1);
+            Bs::sync_to_cache();
             $token = Bs::get_token();
 //            取到新的token;
             header("Access-Control-Expose-Headers: $session_name");
             header("$session_name: $token");
         } else {
-            dd(2);
 //            将整合的数据存进全局变量中
             Bs::sync_to_cache();
         }
-
-
         return $next($request);
     }
 }
