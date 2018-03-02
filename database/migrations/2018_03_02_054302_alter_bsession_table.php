@@ -26,7 +26,7 @@ class AlterBsessionTable extends Migration
     public function down()
     {
         Schema::table('bsession', function (Blueprint $table) {
-            //
+            $table->unsignedInteger('user_id')->nullable()->change();
         });
     }
 }
