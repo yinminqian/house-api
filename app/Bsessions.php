@@ -104,7 +104,7 @@ class Bsessions extends Model
 
     public static function make_token()
     {
-        return uniqid() . md5(rand(999, 10000) . 'xyee');
+        return uniqid() . md5(rand(999, 10000) . 'xyee11111111111111111111111111111111');
 //        返回一个唯一的md5加密码
     }
 
