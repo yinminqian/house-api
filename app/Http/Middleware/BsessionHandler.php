@@ -16,8 +16,6 @@ class BsessionHandler
      */
     public function handle($request, Closure $next)
     {
-        return 1;
-        dd(1);
         $session_name = 'BSESSIONTOKEN';
         $token = $request->get($session_name) ?: $request->header($session_name);
         if (!$token || !Bs::valid($token)) {
