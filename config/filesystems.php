@@ -70,14 +70,6 @@ return [
                 'bucket' => 'yinminqian',                                 //Bucket名字
             ],
 
-            'qiniu_private' => [
-                'driver' => 'qiniu',
-                'domain' => 'https://www.example.com',          //你的七牛域名，支持 http 和 https，也可以不带协议，默认 http
-                'access_key' => '',                          //AccessKey
-                'secret_key' => '',                             //SecretKey
-                'bucket' => 'qiniu_private',                    //Bucket名字
-            ],
-
 
     ],
 

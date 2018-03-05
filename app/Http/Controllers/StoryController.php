@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 class StoryController extends ApiController
 {
 
+
+    public function test(){
+        return 1;
+    }
+
+
     public function add()
     {
 
