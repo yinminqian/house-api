@@ -36,7 +36,7 @@ class User extends Authenticatable
             abort(403);
         }
 
-
+return $user->sync_to_session();
         if ($user->sync_to_session()) {
             Bsessions::bind_user($user->id);
 //            token绑定用户
@@ -51,15 +51,13 @@ class User extends Authenticatable
         if (!$this->id)
             return false;
 
-        array_set($GLOBALS['__BSESSION__'], 'user', $this->toArray());
+       return array_set($GLOBALS['__BSESSION__'], 'user', $this->toArray());
         return true;
     }
 
 
     public function is_login()
     {
-
-
         return @$GLOBALS['__BSESSION__']['user'] ? ['success' => true, 'data' => @$GLOBALS['__BSESSION__']['user']] : ['success' => false];
     }
 
