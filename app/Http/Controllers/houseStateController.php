@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class House_stateController extends ApiController
+class HouseStateController extends ApiController
 {
     public function add()
     {

@@ -8,7 +8,7 @@ use function Sodium\crypto_sign_ed25519_pk_to_curve25519;
 use App\story_comments;
 use App\story;
 
-class Story_commentsController extends ApiController
+class StoryCommentsController extends ApiController
 {
     function add()
     {

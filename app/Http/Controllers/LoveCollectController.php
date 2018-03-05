@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Love_collectController extends ApiController
+class LoveCollectController extends ApiController
 {
 
 

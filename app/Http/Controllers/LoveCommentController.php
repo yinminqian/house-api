@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Love_commentController extends ApiController
+class LoveCommentController extends ApiController
 {
 
     public function add(){
