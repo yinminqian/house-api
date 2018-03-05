@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Love_comment extends Model
+class LoveComment extends Model
 {
     public $table = 'love_comments';
     protected $guarded = ['id'];

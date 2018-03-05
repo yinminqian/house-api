@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class House_state extends Model
+class HouseState extends Model
 {
     public $table = 'house_states';
     protected $guarded = ['id'];
