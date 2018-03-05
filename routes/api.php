@@ -20,7 +20,7 @@ use App\User;
 
 
 Route::any('/test', function () {
-dd(1);
+    dd(1);
 });
 Route::any('/read_location', function () {
     $location = new \App\Location;
@@ -64,8 +64,10 @@ Route::any('/logout', function () {
     $user = new User;
     return $user->logout();
 });
-Route::any('/{model}/{action}',function($model,$action){
-    $conterller='\App\Http\Controllers\\'.ucfirst($model).'Controller';
+
+
+Route::any('/{model}/{action}', function ($model, $action) {
+    $conterller = '\App\Http\Controllers\\' . ucfirst($model) . 'Controller';
     //找到这个类的文件
     return (new $conterller($model))->$action();
 //    运行这个类下面的方法
