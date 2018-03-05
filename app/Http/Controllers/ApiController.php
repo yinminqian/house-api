@@ -10,7 +10,6 @@ class ApiController extends Controller
     public function __construct($model)
     {
         $model='\App\\'.ucfirst($model);
-        dd($model);
         $this->model=new $model;
     }
 
