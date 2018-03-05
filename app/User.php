@@ -25,8 +25,6 @@ class User extends Authenticatable
 
     public function login()
     {
-        return 1;
-        die();
         $username = request('username');
         $password = request('password');
         $user = $this->where([
@@ -38,7 +36,6 @@ class User extends Authenticatable
             abort(403);
         }
 
-return $user->sync_to_session();
         if ($user->sync_to_session()) {
             Bsessions::bind_user($user->id);
 //            token绑定用户
@@ -53,7 +50,7 @@ return $user->sync_to_session();
         if (!$this->id)
             return false;
 
-       return array_set($GLOBALS['__BSESSION__'], 'user', $this->toArray());
+      array_set($GLOBALS['__BSESSION__'], 'user', $this->toArray());
         return true;
     }
 
