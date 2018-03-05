@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\story_comments;
+use App\Story;
+
 
 class ApiController extends Controller
 {
