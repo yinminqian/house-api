@@ -18,5 +18,8 @@ class Story extends Model
         return $this->hasMany('App\story_comments', 'article_id');
     }
 
+    public function teat(){
+        return 1;
+    }
 
 }
