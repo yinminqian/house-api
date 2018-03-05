@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Bsessions as Bs;
-
 class User extends Authenticatable
 {
     use Notifiable;
@@ -37,6 +36,7 @@ class User extends Authenticatable
             abort(403);
         }
 
+
         if ($user->sync_to_session()) {
             Bsessions::bind_user($user->id);
 //            token绑定用户
@@ -48,9 +48,9 @@ class User extends Authenticatable
 
     public function sync_to_session()
     {
-        dd($this->toArray());
         if (!$this->id)
             return false;
+
         array_set($GLOBALS['__BSESSION__'], 'user', $this->toArray());
         return true;
     }
@@ -58,6 +58,8 @@ class User extends Authenticatable
 
     public function is_login()
     {
+
+
         return @$GLOBALS['__BSESSION__']['user'] ? ['success' => true, 'data' => @$GLOBALS['__BSESSION__']['user']] : ['success' => false];
     }
 

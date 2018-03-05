@@ -16,7 +16,7 @@ class CreateTableBsession extends Migration
         Schema::create('bsession', function (Blueprint $table) {
             $table->increments('id');
             $table->string('token')->unique();
-            $table->unsignedInteger('user_id')->nullable()->change();
+            $table->unsignedInteger('user_id')->nullable();
             $table->longText('data')->nullable();
             $table->dateTime('expired_at');
             $table->timestamps();
