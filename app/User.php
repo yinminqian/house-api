@@ -25,6 +25,8 @@ class User extends Authenticatable
 
     public function login()
     {
+        return 1;
+        die();
         $username = request('username');
         $password = request('password');
         $user = $this->where([
