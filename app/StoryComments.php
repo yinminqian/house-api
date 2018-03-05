@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class StoryComments extends Model
 {
 
-    protected $table = 'story_comments';
+    protected $table = 'storyComments';
     protected $guarded = ['id'];
 
     public function comments()
     {
-        return $this->hasMany('App\story_comments', 'article_id');
+        return $this->hasMany('App\storyComments', 'article_id');
     }
 
     public function user_com()

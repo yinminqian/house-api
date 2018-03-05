@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use function Sodium\crypto_sign_ed25519_pk_to_curve25519;
-use App\story_comments;
+use App\storyComments;
 use App\story;
 
 class StoryCommentsController extends ApiController
@@ -60,7 +60,7 @@ class StoryCommentsController extends ApiController
 
     public function get_username($user_id)
     {
-        $user = story_comments::find($user_id)->user_com;
+        $user = storyComments::find($user_id)->user_com;
         return $user[0]->username;
     }
 }
