@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class StoryComments extends Model
+class Story_comments extends Model
 {
 
-    protected $table = 'storyComments';
+    protected $table = 'story_comments';
     protected $guarded = ['id'];
 
     public function comments()
     {
-        return $this->hasMany('App\storyComments', 'article_id');
+        return $this->hasMany('App\story_comments', 'article_id');
     }
 
     public function user_com()

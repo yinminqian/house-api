@@ -107,7 +107,7 @@ class User extends Authenticatable
 
     public function comments_user()
     {
-        return $this->hasMany('App\storyComments','user_id');
+        return $this->hasMany('App\story_comments','user_id');
     }
 
 }
