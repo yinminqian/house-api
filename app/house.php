@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class house extends Model
+class House extends Model
 {
     public $table = 'house';
     public $guarded = ['id'];
